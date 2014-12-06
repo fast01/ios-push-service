@@ -28,3 +28,10 @@ Install boost-bjam on your system. You can download last version of boost source
 
     bjam toolset=gcc
     
+How to use
+----------
+
+1. Get certification and private key files (.pem) which are export from your key chains manager.
+2. Create PushManager using certification and key files
+3. Create a PushAction object by invoke method PushManager::create_action
+4. Invoke PushManager::send(PushAction* action) to send notification.
