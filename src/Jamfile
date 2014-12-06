@@ -1,7 +1,9 @@
+lib capn : : <search>/usr/local/lib/capn ;
+
 lib ios-push-service
 :
   [ glob *.cpp ]
-  [ glob ../libcapn/src/*.c ]
+  capn
 :
-  <include>..
+  <include>/usr/local/include
 ;
