@@ -24,6 +24,7 @@ You can follow these commands to compile libcapn on your own system (make sure y
 Compile ios-push-service
 ------------------------
 
-* Install boost-bjam on your system. You can download last version of boost source package from http://www.boost.org
-* Use boost-bjam to compile io-push-service
+Install boost-bjam on your system. You can download last version of boost source package from http://www.boost.org and use boost-bjam to compile io-push-service
+
     bjam toolset=gcc
+    
