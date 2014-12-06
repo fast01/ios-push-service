@@ -6,7 +6,7 @@ This is a c++ wrap class for libcapn, you need compile this source code with lib
 How to compile
 --------------
 
-You need install compile and install libcapn to your computer first. And then you need to install bjam compile system from c++ library: boost, because the compile script is writting in boost style. (For more information about the boost compile system, you can check it from http://www.boost.org) After these two things complete, you will be able to download ios-push-service code and compile/install it.
+You need install compile and install libcapn to your computer first. And then you need to install boost-bjam cause the compile script is writting in boost-bjam style. (For more information about the boost compile system, you can check it from http://www.boost.org) After these two things complete, you will be able to download ios-push-service code and compile/install it.
 
 Compile libcapn
 ---------------
