@@ -1,17 +1,8 @@
-//
-//  ios_push_service.cpp
-//  UMeServerChat
-//
-//  Created by Matthew Lee on 14/12/3.
-//  Copyright (c) 2014年 QX. All rights reserved.
-//
-
 #include "ios_push_service.h"
-#include "print_log.h"
 
 #define CC(__ret__) __check(__ret__, _last_error)
 
-namespace apn {
+namespace apns {
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -19,8 +10,8 @@ void __check(uint8_t ret, apn_error_ref error) {
   if (ret == APN_ERROR) {
     // failed
     std::string err_msg = apn_error_message(error);
-    PRINT_ERR("PushManager ERROR: %s", apn_error_message(error),
-              APN_ERR_CODE_WITHOUT_CLASS(apn_error_code(error)));
+    printf("PushManager ERROR: %s", apn_error_message(error),
+           APN_ERR_CODE_WITHOUT_CLASS(apn_error_code(error)));
     apn_error_free(&error);
     throw std::runtime_error(err_msg.c_str());
   }
@@ -44,7 +35,8 @@ PushAction::PushAction(apn_ctx_ref ctx, std::string const& token,
     CC(apn_payload_set_body(_payload_ctx, _text.c_str(), NULL));
     CC(apn_payload_set_sound(_payload_ctx, _sound.c_str(), NULL));
     CC(apn_payload_set_expiry(_payload_ctx, (int)time(NULL) + exp_secs, NULL));
-  } catch (std::exception& e) {
+  }
+  catch (std::exception& e) {
     close();
   }
 }
@@ -71,7 +63,8 @@ PushManager::PushManager(std::string const& cert_path,
     CC(apn_init(&_ctx, cert_path.c_str(), key_path.c_str(), NULL,
                 &_last_error));
     apn_set_mode(_ctx, APN_MODE_SANDBOX, NULL);
-  } catch (std::exception& e) {
+  }
+  catch (std::exception& e) {
     close();
   }
 }
@@ -97,4 +90,4 @@ PushAction* PushManager::create_action(std::string const& token,
   return new PushAction(_ctx, token, text, badget, sound, exp_secs);
 }
 
-}  // namespace apn
+}  // namespace apns

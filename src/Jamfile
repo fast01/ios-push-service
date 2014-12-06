@@ -1,0 +1,7 @@
+lib ios-push-service
+:
+  [ glob *.cpp ]
+  [ glob ../libcapn/src/*.c ]
+:
+  <include>..
+;

@@ -2,6 +2,11 @@
 //
 //  Designed by Matthew Lee, 12/3/2014
 //
+//  Warning: This source code is based on libcapn.
+//
+//  please visit: http://github.com/mattxlee/ios-push-service
+//  for more information.
+//
 ////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __ios_push_service__
@@ -11,7 +16,7 @@
 #include <string>
 #include <stdexcept>
 
-namespace apn {
+namespace apns {
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -58,6 +63,6 @@ class PushManager {
   apn_error_ref _last_error;
 };
 
-}  // namespace apn
+}  // namespace apns
 
 #endif /* defined(__ios_push_service__) */
