@@ -13,7 +13,7 @@ Compile libcapn
 
 Use git to clone libcapn repo from https://github.com/adobkin/libcapn and make sure you have initialized submodules, because it will need jansson source to compile. And then please use cmake to generate makefile and platform.h file from libapn root dir.
 
-For example:
+You can follow these commands to compile libcapn on your own system (make sure your system have make, cmake and git installed)
 
     git clone https://github.com/adobkin/libcapn
     cd libcapn
@@ -22,4 +22,8 @@ For example:
     make && make install
 
 Compile ios-push-service
-----------------------------
+------------------------
+
+* Install boost-bjam on your system. You can download last version of boost source package from http://www.boost.org
+* Use boost-bjam to compile io-push-service
+    bjam toolset=gcc
